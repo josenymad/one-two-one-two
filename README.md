@@ -1,6 +1,6 @@
 # One-Two-One-Two
 
-This is a simple mock API build for development. It will mirror the JSON data sent in the request body. You can also send the status code you'd like to receive back as a URL query param so you can test successful and failed responses of your app.
+This is a simple mock API built for development. It will mirror the JSON data sent in the request body. You can also send the status code you'd like to receive back as a URL query param so you can test successful and failed responses of your app.
 
 ## Installation
 
