@@ -7,12 +7,12 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-type ResponseData struct {
+type Response struct {
 	Data   map[string]interface{} `json:"data"`
 	Status string                 `json:"status"`
 }
 
-func GetRequestData(c *gin.Context) ResponseData {
+func GetRequestData(c *gin.Context) Response {
 	requestData := make(map[string]interface{})
 	queryParams := c.Request.URL.Query()
 
@@ -32,18 +32,18 @@ func GetRequestData(c *gin.Context) ResponseData {
 		status = "200"
 	}
 
-	return ResponseData{
+	return Response{
 		Data:   requestData,
 		Status: status.(string),
 	}
 }
 
 func TestHandler(c *gin.Context) {
-	responseData := GetRequestData(c)
-	responseStatus, err := strconv.Atoi(responseData.Status)
+	response := GetRequestData(c)
+	responseStatus, err := strconv.Atoi(response.Status)
 	if err != nil {
 		log.Println("Error converting status from string to int", err)
 		return
 	}
-	c.JSON(responseStatus, responseData.Data)
+	c.JSON(responseStatus, response.Data)
 }
