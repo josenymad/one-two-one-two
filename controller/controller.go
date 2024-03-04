@@ -24,9 +24,9 @@ func GetRequestData(c *gin.Context) Response {
 		requestData[key] = values[0]
 	}
 
-	status := requestData["status"]
+	var status string
 
-	if status != nil {
+	if requestData["status"] != nil {
 		status = requestData["status"].(string)
 	} else {
 		status = "200"
@@ -34,7 +34,7 @@ func GetRequestData(c *gin.Context) Response {
 
 	return Response{
 		Data:   requestData,
-		Status: status.(string),
+		Status: status,
 	}
 }
 
