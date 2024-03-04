@@ -11,6 +11,6 @@ This is a simple mock API built for development. It will mirror the JSON data se
 
 - Run the mock API with `go run .`
 - By default, it runs on `http://localhost:8000`, you can change this in the main file should you need to
-- The API endpoint is:
+- The API endpoint would then be:
 
-`/test?status=<status code you'd like to receive back>`
+`http://localhost:8000/test?status=<status code you'd like to receive back>`
